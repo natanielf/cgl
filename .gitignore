@@ -1,3 +1,4 @@
 *.wasm
+main.js
 *.o
 test
