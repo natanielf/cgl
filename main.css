@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+:root {
+  --clr-bkgd: hsl(0 0% 30%);
+  --clr-canvas: hsl(0 0% 90%);
+  --clr-btn: hsl(0 0% 40%);
+}
+
+body {
+  margin: 0;
+  background-color: var(--clr-bkgd);
+  font-family: sans-serif, Arial;
+}
+
+main {
+  margin-block: 1rem;
+  margin-inline: auto;
+  display: grid;
+  place-items: center;
+}
+
+#canvas {
+  background-color: var(--clr-canvas);
+  border: 1px solid black;
+  margin: 1rem;
+}
+
+#resumepause {
+  border-radius: 1rem;
+  border: 1px solid black;
+  padding: 0.5rem;
+}

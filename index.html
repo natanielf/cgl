@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./main.css" />
+  </head>
+
+  <body>
+    <main>
+      <canvas
+        class="emscripten"
+        id="canvas"
+        oncontextmenu="event.preventDefault()"
+        tabindex="-1"
+      ></canvas>
+
+      <button id="resumepause">PAUSE</button>
+    </main>
+  </body>
+
+  <script>
+    var Module = {};
+  </script>
+
+  <script async type="text/javascript" src="main.js"></script>
+
+  <script>
+    Module.onRuntimeInitialized = (_) => {
+      // Canvas
+      const canvas = document.getElementById("canvas");
+      canvas.addEventListener(
+        "webglcontextlost",
+        (e) => {
+          alert("Error: WebGL context lost. Please reload the page.");
+          e.preventDefault();
+        },
+        false
+      );
+      // Resume/pause button
+      const resume_pause_btn = document.getElementById("resumepause");
+      resume_pause_btn.addEventListener("click", () => {
+        resume_pause_btn.textContent = Module._is_paused() ? "RESUME" : "PAUSE";
+        Module._toggle_play_pause();
+      });
+    };
+  </script>
+</html>
