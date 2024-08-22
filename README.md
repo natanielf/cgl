@@ -11,7 +11,7 @@ source path/to/emsdk/emsdk_env.sh
 ## Build
 
 ```sh
-emcc main.c -o main.js
+emcc -Wall -sMIN_WEBGL_VERSION=2 -sMAX_WEBGL_VERSION=2 main.c cgl.c -o main.js
 ```
 
 ## Run
