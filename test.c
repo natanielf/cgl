@@ -18,15 +18,15 @@ extern unsigned int size;
 
 // Enable/disable a delay between generations
 #define DELAY 1
-struct timespec ts = {.tv_sec = 0, .tv_nsec = 100000000};  // 0.1 sec
+struct timespec ts = {.tv_sec = 0, .tv_nsec = 100000000}; // 0.1 sec
 
 void print_cells(bool **c, unsigned int s);
 void print_border(unsigned int s);
 
 int main(int argc, char **argv) {
     srand(time(NULL));
-    cells = init_cells(size);
-    randomize_cells(cells, size);
+    cells = init_cells();
+    randomize_cells(cells);
     int generation_count = 0;
     while (1) {
         if (generation_count == MAX_GENERATIONS) break;
