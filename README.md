@@ -36,3 +36,4 @@ Open http://0.0.0.0:8000/ in your browser.
 - https://emscripten.org/docs/porting/multimedia_and_graphics/EGL-Support-in-Emscripten.html
 - https://github.com/emscripten-core/emscripten/blob/main/test/third_party/glbook/Common/esUtil.c
 - https://github.com/emscripten-core/emscripten/blob/main/test/minimal_webgl
+- https://doublejump.github.io/webgl-with-webassembly/index.html

@@ -20,6 +20,9 @@ main {
 }
 
 #canvas {
+  width: 80vw;
+  max-width: calc(80vh - 2rem);
+  aspect-ratio: 1 / 1;
   background-color: var(--clr-canvas);
   border: 1px solid black;
   margin: 1rem;

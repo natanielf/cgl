@@ -5,6 +5,7 @@
 #include <time.h>
 
 #ifdef __EMSCRIPTEN__
+#include <GLES2/gl2.h>
 #include <emscripten.h>
 #endif
 
@@ -73,6 +74,9 @@ EMSCRIPTEN_KEEPALIVE
 #endif
 void loop() {
     printf("Generation: %d, Population: %d\n", generation, population);
+#ifdef __EMSCRIPTEN__
+    glClear(GL_COLOR_BUFFER_BIT);
+#endif
     tick();
 }
 
