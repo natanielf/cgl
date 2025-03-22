@@ -35,6 +35,7 @@ int main(int argc, char **argv) {
         if (DELAY) nanosleep(&ts, &ts);
         ++generation_count;
     }
+    free_cells(cells);
     return 0;
 }
 

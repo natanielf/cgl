@@ -50,7 +50,6 @@ make test
 - https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_Wasm
 - https://emscripten.org/docs/getting_started/Tutorial.html
 - https://emscripten.org/docs/api_reference/emscripten.h.html
-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range
 - https://www.geeksforgeeks.org/dynamically-allocate-2d-array-c/
 - https://en.cppreference.com/w/c/numeric/random/srand
 - https://en.cppreference.com/w/c/numeric/random/rand

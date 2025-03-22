@@ -44,5 +44,6 @@ int main(int argc, char **argv) {
 
     // Set main loop
     emscripten_set_main_loop(loop, 0, true);
+    free_cells(cells);
     return 0;
 }
