@@ -1,8 +1,10 @@
 # Conway's Game of Life in WebAssembly
 
+Conway's Game of Life in WebAssembly and WebGL.
+
 ## Environment Setup
 
-- Install the [Emscripten SDK (emsdk)](https://emscripten.org/docs/getting_started/downloads.html)
+Install the [Emscripten SDK (emsdk)](https://emscripten.org/docs/getting_started/downloads.html).
 
 ```sh
 source path/to/emsdk/emsdk_env.sh
@@ -11,16 +13,36 @@ source path/to/emsdk/emsdk_env.sh
 ## Build
 
 ```sh
+make cgl
+```
+
+or
+
+```sh
 emcc -Wall -sMIN_WEBGL_VERSION=2 -sMAX_WEBGL_VERSION=2 main.c cgl.c -o main.js
 ```
 
 ## Run
 
+First, start a HTTP server to serve files in the current working directory:
+
 ```sh
 python3 -m http.server
 ```
 
-Open http://0.0.0.0:8000/ in your browser.
+Then, open http://0.0.0.0:8000/ in your browser.
+
+## Test
+
+Conway's Game of Life can also run in the terminal for testing purposes:
+
+```sh
+make test
+```
+
+```sh
+./test
+```
 
 ## References
 

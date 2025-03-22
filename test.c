@@ -1,3 +1,4 @@
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -21,15 +22,14 @@ extern unsigned int size;
 struct timespec ts = {.tv_sec = 0, .tv_nsec = 100000000}; // 0.1 sec
 
 void print_cells(bool **c, unsigned int s);
-void print_border(unsigned int s);
+void print_horizontal_border(unsigned int s);
 
 int main(int argc, char **argv) {
     srand(time(NULL));
     cells = init_cells();
     randomize_cells(cells);
-    int generation_count = 0;
-    while (1) {
-        if (generation_count == MAX_GENERATIONS) break;
+    unsigned int generation_count = 0;
+    while (generation_count <= MAX_GENERATIONS) {
         loop();
         print_cells(cells, size);
         if (DELAY) nanosleep(&ts, &ts);
@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
 }
 
 void print_cells(bool **c, unsigned int s) {
-    print_border(s);
+    print_horizontal_border(s);
     for (unsigned int row = 0; row < s; ++row) {
         printf("%c", V_BORDER_CHAR);
         for (unsigned int col = 0; col < s; ++col) {
@@ -55,10 +55,10 @@ void print_cells(bool **c, unsigned int s) {
         }
         printf("%c\n", V_BORDER_CHAR);
     }
-    print_border(s);
+    print_horizontal_border(s);
 }
 
-void print_border(unsigned int s) {
+void print_horizontal_border(unsigned int s) {
     printf(" ");
     for (unsigned int i = 0; i < (s * 2) - 1; ++i) {
         printf("%c", H_BORDER_CHAR);

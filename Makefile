@@ -9,6 +9,9 @@ TARGETS = main.js main.wasm cgl.o test
 all : $(TARGETS)
 .PHONY : all
 
+cgl : main.js main.wasm
+.PHONY : cgl
+
 main.js main.wasm : main.c cgl.c
 	$(WASM_CC) $(CFLAGS) $(WASM_CFLAGS) main.c cgl.c -o main.js
 
