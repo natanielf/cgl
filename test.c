@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 
 #include "cgl.h"
 
@@ -19,7 +20,7 @@ extern unsigned int size;
 
 // Enable/disable a delay between generations
 #define DELAY 1
-struct timespec ts = {.tv_sec = 0, .tv_nsec = 100000000}; // 0.1 sec
+useconds_t delay = 100000; // 0.1 sec
 
 void print_cells(bool **c, unsigned int s);
 void print_horizontal_border(unsigned int s);
@@ -32,7 +33,7 @@ int main(int argc, char **argv) {
     while (generation_count <= MAX_GENERATIONS) {
         loop();
         print_cells(cells, size);
-        if (DELAY) nanosleep(&ts, &ts);
+        if (DELAY) usleep(delay);
         ++generation_count;
     }
     free_cells(cells);

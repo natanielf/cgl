@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 #ifdef __EMSCRIPTEN__
 #include <GLES2/gl2.h>
@@ -48,7 +47,6 @@ EMSCRIPTEN_KEEPALIVE
 #endif
 void randomize_cells(bool **c) {
     for (unsigned int row = 0; row < size; ++row) {
-        // printf("c: %d c[%d]: %d\n", c, row, c[row]);
         assert(c[row]);
         for (unsigned int col = 0; col < size; ++col) {
             int prob = rand() % 100; // [0, 100]
@@ -74,9 +72,6 @@ EMSCRIPTEN_KEEPALIVE
 #endif
 void loop() {
     printf("Generation: %d, Population: %d\n", generation, population);
-#ifdef __EMSCRIPTEN__
-    glClear(GL_COLOR_BUFFER_BIT);
-#endif
     tick();
 }
 
